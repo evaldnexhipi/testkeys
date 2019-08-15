@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: demo-Deployment
 spec:
+  selector:
+      matchLabels:
+        app: demo
   replicas: 4 # Update the replicas from 2 to 4
   template:
     metadata:
