@@ -7,7 +7,7 @@ node {
        remote.user = userName
        remote.identityFile = identity
        stage("install AWSCLI") {
-            sh 'sudo curl https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-bundle.zip'
+            sh 'curl https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-bundle.zip'
             sh 'sudo apt install unzip python -y'
             sh 'sudo unzip awscli-bundle.zip'
             sh 'sudo ./awscli-bundle/install -i /usr/local/aws -b /usr/local/bin/aws'
