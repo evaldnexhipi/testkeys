@@ -5,7 +5,7 @@ remote.user = 'root'
 remote.allowAnyHosts = true
 node {
    withCredentials([sshUserPrivateKey(credentialsId: 'fb85b400-eef6-45e8-9aae-0f27e2cc7fbe', keyFileVariable: 'identity', passphraseVariable: '', usernameVariable: 'userName')]) {
-       remote.user = 'root'
+       remote.user = userName
        remote.identityFile = identity
        stage("install AWSCLI") {
             sh 'curl https://s3.amazonaws.com/aws-cli/awscli-bundle.zip -o awscli-bundle.zip'
