@@ -1,5 +1,5 @@
 def remote = [:]
-remote.name = "root"
+remote.name = "ubuntu"
 remote.host = "3.15.205.56"
 remote.allowAnyHosts = true
 node {
