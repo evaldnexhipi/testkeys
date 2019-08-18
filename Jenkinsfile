@@ -7,7 +7,7 @@ node {
       remote.user = userName
       remote.identityFile = identity
       stage("install awscli") {
-           sh 'apt get update'
+           sh 'sudo apt get update'
       }
       stage("install kops"){
       }
