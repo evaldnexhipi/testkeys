@@ -8,8 +8,12 @@ node {
       remote.identityFile = identity
       stage("install awscli") {
            sh 'sudo apt-get update'
+           sh 'sudo apt-get install awscli'
       }
       stage("install kops"){
+           sh 'curl -LO https://github.com/kubernetes/kops/releases/download/$(curl -s https://api.github.com/repos/kubernetes/kops/releases/latest | grep tag_name | cut -d '"' -f 4)/kops-linux-amd64'
+           sh 'chmod +x kops-linux-amd64'
+           sh 'sudo mv kops-linux-amd64 /usr/local/bin/kops'
       }
    }
 }
