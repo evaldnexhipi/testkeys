@@ -8,8 +8,6 @@ node {
       remote.identityFile = identity
       stage("install python and python pip") {
            sh 'sudo apt-get update'
-           sh 'sudo apt-get install python -y'
-           sh 'sudo apt-get install python-pip -y'
       }
       stage("install kubectl"){
       }
