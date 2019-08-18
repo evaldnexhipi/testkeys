@@ -37,12 +37,12 @@ node {
                 sh 'sudo ssh-keygen -t rsa -N "" -f /root/.ssh/id_rsa -y'
             }
             stage("create the cluster"){
-                sh 'kops create secret --name xlajd.k8s.io --state s3://xlajd.k8s.iosshpublickey admin -i /root/.ssh/id_rsa'
-                // sh 'kops create cluster xlajd.k8s.io --cloud=aws --node-count 2 --zones us-east-2b --node-size t2.micro --master-size t2.micro --image ami-05c1fa8df71875112 --state=s3://xlajd.k8s.io --dns-zone=islajd.io --dns private'
+                sh 'kops create secret --name xlajd.k8s.io sshpublickey admin -i ~/.ssh/id_rsa.pub'
                 sh 'kops create cluster --name=xlajd.k8s.io --cloud=aws --zones=us-east-2b --name=xlajd.k8s.io --node-size=t2.micro --master-size=t2.micro --image ami-05c1fa8df71875112 --state s3://xlajd.k8s.io --dns-zone=islajd.io --dns private'
-                // sh 'kops create cluster --cloud=aws --zones=us-east-2b --name=xlajd.k8s.io --dns-zone=islajd.io --dns private'
-                
             }
+            stage("Create kubernetes cluser"){
+                sh 'kops update cluster xlajd.k8s.io --yes'
+            }   
         }
    }
 }
