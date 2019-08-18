@@ -20,5 +20,8 @@ node {
          sh 'chmod +x ./kubectl'
          sh 'sudo mv ./kubectl /usr/local/bin/kubectl'
       }
+      stage("set environment variables"){
+        
+      }
    }
 }
